@@ -2,7 +2,7 @@
 # define GET_NEXT_LINE_H
 
 #ifndef BUFFER_SIZE
-# define BUFFER_SIZE 100
+# define BUFFER_SIZE 1
 #endif
 
 #include <stdlib.h>
@@ -15,9 +15,14 @@ typedef struct s_list{
     struct s_list *next;
 }   t_list;
 
-void get_next_line(int fd);
+char *get_next_line(int fd);
+char *copy_str(char *str);
 void creat_list(t_list **head, char *str);
 void free_list(t_list **head);
 int check_newline(char *str);
+char *last(char *str);
+char *concating_str(t_list **head);
+size_t ft_strlen(const char *str);
+char	*ft_strjoin(char const *s1, char const *s2);
 
 #endif
