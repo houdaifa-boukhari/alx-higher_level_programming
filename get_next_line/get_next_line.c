@@ -15,21 +15,24 @@ char *get_next_line(int fd)
     if (!buffer)
         return (NULL);
     if (temp)
-        creat_list(&node, temp);
+    {
+        creat_list(&node, temp, '$');
+        free(temp);
+        temp = NULL;
+    }
     while ((byt_read = read(fd, buffer, BUFFER_SIZE)) > 0)
     {
         buffer[byt_read] = '\0';
         if (!check_newline(buffer))
-  
-                creat_list(&node, buffer);
+                creat_list(&node, buffer, 'c');
         else
         {
-            creat_list(&node, last(buffer));
+            creat_list(&node, last(buffer), '$');
             break;
         }
     }
     temp = copy_str(buffer, 'c');
-    // free(buffer);
+    free(buffer);
     return (concating_str(&node));
 }
 
@@ -39,7 +42,7 @@ char *concating_str(t_list **head)
     t_list *ptr = *head;
     if (!head || !*head)
         return (NULL);
-    str = ptr->str;
+    str = copy_str(ptr->str, '$');
     ptr = ptr->next;
     while (ptr)
     {
@@ -52,7 +55,7 @@ char *concating_str(t_list **head)
 
 size_t ft_strlen(const char *str)
 {
-    int i;
+    size_t i;
 
     i = 0;
     while (str[i])
@@ -60,12 +63,12 @@ size_t ft_strlen(const char *str)
     return (i);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*new_str;
 	size_t	len;
-	int		i;
-	int		j;
+	size_t		i;
+	size_t		j;
 
 	len = 0;
 	i = 0;
@@ -85,5 +88,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	while (s2[j])
 		new_str[i++] = s2[j++];
 	new_str[i] = '\0';
+    free(s1);
 	return (new_str);
 }

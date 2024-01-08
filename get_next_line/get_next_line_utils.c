@@ -1,6 +1,6 @@
 # include "get_next_line.h"
 
-void creat_list(t_list **head, char *str)
+void creat_list(t_list **head, char *str, char c)
 {
     t_list *new_node;
     t_list *ptr;
@@ -11,7 +11,10 @@ void creat_list(t_list **head, char *str)
     new_node = (t_list *)malloc(sizeof(t_list));
     if (!new_node)
         return ;
-    new_str = copy_str(str, '$');
+    if (c == 'c')
+        new_str = copy_str(str, '$');
+    else
+        new_str = str;
     new_node->str = new_str;
     new_node->next = NULL;
     if (!*head)
@@ -30,6 +33,8 @@ void free_list(t_list **head)
     t_list *ptr;
 
     ptr = *head;
+    if (!head)
+		return;
     while (*head)
     {
         ptr = (*head)->next;

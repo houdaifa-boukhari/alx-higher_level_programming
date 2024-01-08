@@ -17,12 +17,12 @@ typedef struct s_list{
 
 char *get_next_line(int fd);
 char *copy_str(char *str, char c);
-void creat_list(t_list **head, char *str);
+void creat_list(t_list **head, char *str, char c);
 void free_list(t_list **head);
 int check_newline(char *str);
 char *last(char *str);
 char *concating_str(t_list **head);
 size_t ft_strlen(const char *str);
-char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strjoin(char *s1, char *s2);
 
 #endif
