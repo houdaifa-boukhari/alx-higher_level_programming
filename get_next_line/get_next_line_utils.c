@@ -56,6 +56,8 @@ char *copy_str(char *str, char c)
         return (NULL);
     if (c == 'c')
     {
+        if (!str || *str == '\0')
+            return (NULL);
         if (check_newline(str))
         {
             while (*str != '\n' && *str)

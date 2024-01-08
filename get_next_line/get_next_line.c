@@ -16,8 +16,8 @@ char *get_next_line(int fd)
         return (NULL);
     if (temp)
     {
-        creat_list(&node, temp, '$');
-        free(temp);
+        if (*temp != '\0')
+            creat_list(&node, temp, '$');
         temp = NULL;
     }
     while ((byt_read = read(fd, buffer, BUFFER_SIZE)) > 0)
@@ -28,11 +28,11 @@ char *get_next_line(int fd)
         else
         {
             creat_list(&node, last(buffer), '$');
+            temp = copy_str(buffer, 'c');
             break;
         }
     }
-    temp = copy_str(buffer, 'c');
-    free(buffer);
+    free(buffer), buffer = NULL;
     return (concating_str(&node));
 }
 
@@ -43,10 +43,14 @@ char *concating_str(t_list **head)
     if (!head || !*head)
         return (NULL);
     str = copy_str(ptr->str, '$');
+    if (!str)
+        return (NULL);
     ptr = ptr->next;
     while (ptr)
     {
         str = ft_strjoin(str, ptr->str);
+        if (!str)
+            return (NULL);
         ptr = ptr->next;   
     }
     free_list(head);
@@ -58,6 +62,8 @@ size_t ft_strlen(const char *str)
     size_t i;
 
     i = 0;
+    if (!str)
+        return (0);
     while (str[i])
         i++;
     return (i);
@@ -88,6 +94,6 @@ char	*ft_strjoin(char *s1, char *s2)
 	while (s2[j])
 		new_str[i++] = s2[j++];
 	new_str[i] = '\0';
-    free(s1);
+    free(s1), s1 = NULL;
 	return (new_str);
 }
