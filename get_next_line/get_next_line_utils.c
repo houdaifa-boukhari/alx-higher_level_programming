@@ -11,7 +11,7 @@ void creat_list(t_list **head, char *str)
     new_node = (t_list *)malloc(sizeof(t_list));
     if (!new_node)
         return ;
-    new_str = copy_str(str);
+    new_str = copy_str(str, '$');
     new_node->str = new_str;
     new_node->next = NULL;
     if (!*head)
@@ -34,13 +34,14 @@ void free_list(t_list **head)
     {
         ptr = (*head)->next;
         free((*head)->str);
+        (*head)->str = NULL;
         free(*head);
         *head = ptr;
     }
     *head = NULL;
 }
 
-char *copy_str(char *str)
+char *copy_str(char *str, char c)
 {
     char *new_str;
     int i;
@@ -48,10 +49,19 @@ char *copy_str(char *str)
     i = 0;
     if (!str)
         return (NULL);
-    new_str = (char *)malloc(BUFFER_SIZE + 1);
+    if (c == 'c')
+    {
+        if (check_newline(str))
+        {
+            while (*str != '\n' && *str)
+                str++;
+            *str == '\n'? str++ : str;
+        }
+    }
+    new_str = (char *)malloc(ft_strlen(str) + 1);
     if (!new_str)
          return (NULL);
-    while(str[i] && i <= BUFFER_SIZE)
+    while(str[i])
     {
            new_str[i] = str[i];
            i++;

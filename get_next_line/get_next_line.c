@@ -2,9 +2,11 @@
 
 char *get_next_line(int fd)
 {
-    static t_list *node;
-    char *buffer;
+    
+    t_list *node;
     int byt_read;
+    static char* temp;
+    char *buffer;
 
     node = NULL;
     if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, &buffer, 0) < 0)
@@ -12,21 +14,22 @@ char *get_next_line(int fd)
     buffer = (char *)malloc(BUFFER_SIZE + 1);
     if (!buffer)
         return (NULL);
+    if (temp)
+        creat_list(&node, temp);
     while ((byt_read = read(fd, buffer, BUFFER_SIZE)) > 0)
     {
+        buffer[byt_read] = '\0';
         if (!check_newline(buffer))
-        {
-            buffer[byt_read] = '\0';
-            creat_list(&node, buffer);
-        }
+  
+                creat_list(&node, buffer);
         else
         {
-            buffer[byt_read] = '\0';
             creat_list(&node, last(buffer));
             break;
         }
     }
-    free (buffer);
+    temp = copy_str(buffer, 'c');
+    // free(buffer);
     return (concating_str(&node));
 }
 
@@ -34,7 +37,7 @@ char *concating_str(t_list **head)
 {
     char *str;
     t_list *ptr = *head;
-    if (!head)
+    if (!head || !*head)
         return (NULL);
     str = ptr->str;
     ptr = ptr->next;

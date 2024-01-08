@@ -16,7 +16,7 @@ typedef struct s_list{
 }   t_list;
 
 char *get_next_line(int fd);
-char *copy_str(char *str);
+char *copy_str(char *str, char c);
 void creat_list(t_list **head, char *str);
 void free_list(t_list **head);
 int check_newline(char *str);
