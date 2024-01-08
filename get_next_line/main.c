@@ -7,15 +7,19 @@ int main()
     if (fd == -1)
         return (-1);
     char *s = get_next_line(fd);
-    printf("%s", s);
+    printf("1: %s", s);
     s = get_next_line(fd);
-    printf("%s", s);
-    // s = get_next_line(fd);
-    // printf("%s", s);
-    // s = get_next_line(fd);
-    // printf("%s", s);
-    // s = get_next_line(fd);
-    // printf("%s", s);
+    printf("2: %s", s);
+    s = get_next_line(fd);
+    printf("3: %s", s);
+    s = get_next_line(fd);
+    printf("4: %s", s);
+    s = get_next_line(fd);
+    printf("5: %s", s);
+    s = get_next_line(fd);
+    printf("6: %s", s);
+    s = get_next_line(fd);
+    printf("--7: %s", s);
 
     free(s);
 }

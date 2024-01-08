@@ -2,7 +2,7 @@
 # define GET_NEXT_LINE_H
 
 #ifndef BUFFER_SIZE
-# define BUFFER_SIZE 10000000
+# define BUFFER_SIZE 42
 #endif
 
 #include <stdlib.h>
@@ -22,7 +22,7 @@ void free_list(t_list **head);
 int check_newline(char *str);
 char *last(char *str);
 char *concating_str(t_list **head);
-size_t ft_strlen(const char *str);
+size_t ft_strlen(char *str);
 char	*ft_strjoin(char *s1, char *s2);
 
 #endif

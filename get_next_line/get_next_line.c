@@ -1,23 +1,38 @@
 #include "get_next_line.h"
 
+char *update(char *str)
+{
+    char *new_str;
+    int i = 0;
+    while (str[i])
+    {
+        if (str[i] != '\n' && *str)
+            i++; 
+    }
+    new_str
+}
 char *get_next_line(int fd)
 {
     
     t_list *node;
     int byt_read;
+
     static char* temp;
     char *buffer;
 
     node = NULL;
     if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, &buffer, 0) < 0)
+    {
+        free(temp);
+        temp = NULL;
         return (NULL);
+    }
     buffer = (char *)malloc(BUFFER_SIZE + 1);
     if (!buffer)
         return (NULL);
     if (temp)
     {
-        if (*temp != '\0')
-            creat_list(&node, temp, '$');
+        creat_list(&node, temp, '$');
         temp = NULL;
     }
     while ((byt_read = read(fd, buffer, BUFFER_SIZE)) > 0)
@@ -43,24 +58,19 @@ char *concating_str(t_list **head)
     if (!head || !*head)
         return (NULL);
     str = copy_str(ptr->str, '$');
-    if (!str)
-        return (NULL);
     ptr = ptr->next;
     while (ptr)
     {
         str = ft_strjoin(str, ptr->str);
-        if (!str)
-            return (NULL);
         ptr = ptr->next;   
     }
     free_list(head);
     return (str);
 }
 
-size_t ft_strlen(const char *str)
+size_t ft_strlen(char *str)
 {
     size_t i;
-
     i = 0;
     if (!str)
         return (0);

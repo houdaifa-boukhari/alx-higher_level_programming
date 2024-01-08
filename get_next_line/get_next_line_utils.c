@@ -56,22 +56,22 @@ char *copy_str(char *str, char c)
         return (NULL);
     if (c == 'c')
     {
-        if (!str || *str == '\0')
-            return (NULL);
         if (check_newline(str))
         {
             while (*str != '\n' && *str)
                 str++;
             *str == '\n'? str++ : str;
         }
+        if (!str || *str == '\0')
+            return (NULL);
     }
     new_str = (char *)malloc(ft_strlen(str) + 1);
     if (!new_str)
          return (NULL);
     while(str[i])
     {
-           new_str[i] = str[i];
-           i++;
+       new_str[i] = str[i];
+        i++;
     }
     new_str[i] = '\0';
     return (new_str);
