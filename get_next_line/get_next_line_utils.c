@@ -44,6 +44,7 @@ void free_list(t_list **head)
         *head = ptr;
     }
     *head = NULL;
+    head = NULL;
 }
 
 char *copy_str(char *str, char c)

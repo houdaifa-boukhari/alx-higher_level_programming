@@ -6,6 +6,7 @@ char *get_next_line(int fd)
     t_list *node;
     int byt_read;
     char *line;
+    char *str;
     static char* temp;
     char *buffer;
 
@@ -22,14 +23,17 @@ char *get_next_line(int fd)
     if (temp)
     {
         if (!check_newline(temp))
-            creat_list(&node, temp, '$');
+            creat_list(&node, temp, '$');  
         else
         {   
             line = last(temp);
-            temp = copy_str(temp, 'c');
+            str = copy_str(temp, 'c');
+            free(temp), temp = NULL;
+            temp = str;
+            free(buffer), buffer = NULL;
             return (line);
         }
-    }
+    } 
     while ((byt_read = read(fd, buffer, BUFFER_SIZE)) > 0)
     {
         buffer[byt_read] = '\0';
@@ -39,6 +43,7 @@ char *get_next_line(int fd)
         {
             creat_list(&node, last(buffer), '$');
             temp = copy_str(buffer, 'c');
+            free(buffer), buffer = NULL;
             break;
         }
     }

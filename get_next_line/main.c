@@ -9,18 +9,20 @@ int main()
     char *s = get_next_line(fd);
     printf("1: %s", s);
     s = get_next_line(fd);
+    free(s);
     printf("2: %s", s);
     s = get_next_line(fd);
-    printf("3: %s", s);
-    s = get_next_line(fd);
-    printf("4: %s", s);
-    s = get_next_line(fd);
-    printf("5: %s", s);
-    s = get_next_line(fd);
-    printf("6: %s", s);
-    s = get_next_line(fd);
-    printf("--7: %s", s);
     free(s);
+    printf("\n3: %s", s);
+    // s = get_next_line(fd);
+    // // printf("4: %s", s);
+    // s = get_next_line(fd);
+    // // printf("5: %s", s);
+    // s = get_next_line(fd);
+    // // printf("6: %s", s);
+    // s = get_next_line(fd);
+    // // printf("--7: %s", s);
+    // while(1);
 }
 
 // int main()
