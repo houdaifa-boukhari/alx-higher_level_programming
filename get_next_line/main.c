@@ -20,7 +20,6 @@ int main()
     printf("6: %s", s);
     s = get_next_line(fd);
     printf("--7: %s", s);
-
     free(s);
 }
 

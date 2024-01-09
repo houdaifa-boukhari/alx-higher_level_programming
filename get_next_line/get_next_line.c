@@ -1,22 +1,11 @@
 #include "get_next_line.h"
 
-char *update(char *str)
-{
-    char *new_str;
-    int i = 0;
-    while (str[i])
-    {
-        if (str[i] != '\n' && *str)
-            i++; 
-    }
-    new_str
-}
 char *get_next_line(int fd)
 {
     
     t_list *node;
     int byt_read;
-
+    char *line;
     static char* temp;
     char *buffer;
 
@@ -32,8 +21,14 @@ char *get_next_line(int fd)
         return (NULL);
     if (temp)
     {
-        creat_list(&node, temp, '$');
-        temp = NULL;
+        if (!check_newline(temp))
+            creat_list(&node, temp, '$');
+        else
+        {   
+            line = last(temp);
+            temp = copy_str(temp, 'c');
+            return (line);
+        }
     }
     while ((byt_read = read(fd, buffer, BUFFER_SIZE)) > 0)
     {
