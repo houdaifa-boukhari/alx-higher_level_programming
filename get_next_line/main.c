@@ -1,29 +1,21 @@
 #include "get_next_line.h"
 
-int main()
-{
-    int fd;
-    fd = open("file.txt", O_RDONLY | O_APPEND);
-    if (fd == -1)
-        return (-1);
-    char *s = get_next_line(fd);
-    printf("1: %s", s);
-    s = get_next_line(fd);
-    free(s);
-    printf("2: %s", s);
-    s = get_next_line(fd);
-    free(s);
-    printf("\n3: %s", s);
-    // s = get_next_line(fd);
-    // // printf("4: %s", s);
-    // s = get_next_line(fd);
-    // // printf("5: %s", s);
-    // s = get_next_line(fd);
-    // // printf("6: %s", s);
-    // s = get_next_line(fd);
-    // // printf("--7: %s", s);
-    // while(1);
-}
+// int main()
+// {
+//     int fd;
+//     fd = open("file.txt", O_RDONLY | O_APPEND);
+//     if (fd == -1)
+//         return (-1);
+//     char *s = NULL;
+//     while (i <= 13)
+//     {
+//         s = get_next_line(fd);
+//         printf("%d: %s", i , s);
+//         free(s);
+//         i++;
+//     }
+//     printf("\n");
+// }
 
 // int main()
 // {
@@ -38,9 +30,3 @@ int main()
 //     printf("%s", str);
 // }
   
-// int main()
-// {
-//     char *str = NULL;
-//     int *str;
-//     free(str);
-// }

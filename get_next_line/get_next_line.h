@@ -15,6 +15,13 @@ typedef struct s_list{
     struct s_list *next;
 }   t_list;
 
+typedef struct value{
+    char *str;
+    char *line;
+    int byt_read;
+} va;
+
+char *read_and_process(int fd, char **temp, char *buffer, t_list *node);
 char *get_next_line(int fd);
 char *copy_str(char *str, char c);
 void creat_list(t_list **head, char *str, char c);

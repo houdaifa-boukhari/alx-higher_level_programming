@@ -1,13 +1,37 @@
 #include "get_next_line.h"
 
+char *read_and_process(int fd, char **temp, char *buffer, t_list *node)
+{
+    va value;
+
+    if (*temp && check_newline(*temp))
+    {
+        value.line = last(*temp);
+        value.str = copy_str(*temp, 'c');
+        free(*temp);
+        *temp = value.str;
+        return (value.line);
+    }
+    creat_list(&node, *temp, '$');
+    *temp = NULL;
+    while ((value.byt_read = read(fd, buffer, BUFFER_SIZE)) > 0)
+    {
+        buffer[value.byt_read] = '\0';
+        if (check_newline(buffer))
+        {
+            creat_list(&node, last(buffer), '$');
+            *temp = copy_str(buffer, 'c');
+            break;
+        }
+        creat_list(&node, buffer, 'c');
+    }
+    return (concating_str(&node));
+}
 char *get_next_line(int fd)
 {
-    
+    static char *temp;
     t_list *node;
-    int byt_read;
     char *line;
-    char *str;
-    static char* temp;
     char *buffer;
 
     node = NULL;
@@ -20,35 +44,9 @@ char *get_next_line(int fd)
     buffer = (char *)malloc(BUFFER_SIZE + 1);
     if (!buffer)
         return (NULL);
-    if (temp)
-    {
-        if (!check_newline(temp))
-            creat_list(&node, temp, '$');  
-        else
-        {   
-            line = last(temp);
-            str = copy_str(temp, 'c');
-            free(temp), temp = NULL;
-            temp = str;
-            free(buffer), buffer = NULL;
-            return (line);
-        }
-    } 
-    while ((byt_read = read(fd, buffer, BUFFER_SIZE)) > 0)
-    {
-        buffer[byt_read] = '\0';
-        if (!check_newline(buffer))
-                creat_list(&node, buffer, 'c');
-        else
-        {
-            creat_list(&node, last(buffer), '$');
-            temp = copy_str(buffer, 'c');
-            free(buffer), buffer = NULL;
-            break;
-        }
-    }
-    free(buffer), buffer = NULL;
-    return (concating_str(&node));
+    line = read_and_process(fd, &temp, buffer, node);
+    free(buffer);
+    return (line);
 }
 
 char *concating_str(t_list **head)
