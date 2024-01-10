@@ -1,8 +1,9 @@
-#include "get_next_line.h"
+// #include "get_next_line.h"
 
 // int main()
 // {
 //     int fd;
+//     int i = 0;
 //     fd = open("file.txt", O_RDONLY | O_APPEND);
 //     if (fd == -1)
 //         return (-1);
@@ -10,7 +11,7 @@
 //     while (i <= 13)
 //     {
 //         s = get_next_line(fd);
-//         printf("%d: %s", i , s);
+//         printf(" %d : %s ", i , s);
 //         free(s);
 //         i++;
 //     }
