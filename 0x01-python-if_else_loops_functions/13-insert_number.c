@@ -7,15 +7,13 @@
  * Return: Pointer to the head of the sorted linked list
  */
 
-listint_t	*buble_sort(listint_t *current)
+void	buble_sort(listint_t *current)
 {
 	int		tmp;
 	listint_t	*next;
-	listint_t	*head;
 
-	head = current;
 	if (!current)
-		return (NULL);
+		return ;
 	while (current)
 	{
 		next = current->next;
@@ -31,7 +29,6 @@ listint_t	*buble_sort(listint_t *current)
 		}
 		current = current->next;
 	}
-	return (head);
 }
 
 /**
@@ -46,7 +43,7 @@ listint_t *insert_node(listint_t **head, int number)
 {
 	if (!head)
 		return (NULL);
-	*head = add_nodeint_end(head, number);
+	add_nodeint_end(head, number);
 	buble_sort(*head);
 	return (*head);
 }
