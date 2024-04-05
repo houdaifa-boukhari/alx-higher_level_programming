@@ -11,8 +11,8 @@ def uppercase(str):
     i = 0
     while str[i]:
         if islower(str[i]):
-            print(str[i])
+            print(f"{str[i]}")
         else:
-            print(str[i])
+            print(f"{str[i]}")
         i += 1
                   
