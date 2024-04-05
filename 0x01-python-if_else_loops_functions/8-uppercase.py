@@ -9,10 +9,11 @@ def islower(c):
 
 def uppercase(str):
     i = 0
-    while str[i]:
+    upper_str = ""
+    while i < len(str):
         if islower(str[i]):
-            print("{}".format(str[i]))
+            upper_str += chr((ord(str[i]) - 32))
         else:
-            print("{}".format(str[i]))
+            upper_str += str[i]
         i += 1
-                  
+        print(f"{upper_str}")
