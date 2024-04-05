@@ -46,7 +46,7 @@ listint_t *insert_node(listint_t **head, int number)
 {
 	if (!head)
 		return (NULL);
-	head = add_nodeint_end(head, number);
-	head = buble_sort(*head);
-	return (head);
+	*head = add_nodeint_end(head, number);
+	*head = buble_sort(*head);
+	return (*head);
 }
