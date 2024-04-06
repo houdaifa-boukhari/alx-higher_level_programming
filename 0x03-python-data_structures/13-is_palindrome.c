@@ -7,9 +7,9 @@
  * Return: number of elements in the list
  */
 
-int ft_lstsize(listint_t *head)
+size_t ft_lstsize(listint_t *head)
 {
-	int count = 0;
+	size_t count = 0;
 
 	if (!head)
 		return (0);
@@ -29,7 +29,7 @@ int ft_lstsize(listint_t *head)
 
 int is_palindrome(listint_t **head)
 {
-	int count = ft_lstsize(*head);
+	size_t count = ft_lstsize(*head);
 	int *my_list;
 	listint_t *current = *head;
 
@@ -38,7 +38,7 @@ int is_palindrome(listint_t **head)
 	my_list = (int *)malloc(sizeof(int) * count);
 	if (!my_list)
 		return (0);
-	for (int i = count - 1; current && i >= 0; i--, current = current->next)
+	for (size_t i = count - 1; current; i--, current = current->next)
 		my_list[i] = current->n;
 	current = *head;
 	for (int i = 0; current; i++, current = current->next)
