@@ -39,7 +39,7 @@ int is_palindrome(listint_t **head)
 	if (!my_list)
 		return (0);
 	for (int i = count - 1; current && i >= 0; i--, current = current->next)
-		my_list[count] = current->n;
+		my_list[i] = current->n;
 	current = *head;
 	for (int i = 0; current; i++, current = current->next)
 	{
