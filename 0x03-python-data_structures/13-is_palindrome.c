@@ -33,22 +33,22 @@ int is_palindrome(listint_t **head)
 	int *my_list;
 	listint_t *current = *head;
 
-	if (!head || !*head)
-		return (0);
-	my_list = (int *)malloc(sizeof(int) * count);
-	if (!my_list)
-		return (0);
-	for (int i = count - 1; current && i >= 0; i--, current = current->next)
-		my_list[i] = current->n;
-	current = *head;
-	for (int i = 0; current; i++, current = current->next)
-	{
-		if (current->n != my_list[i])
-		{
-			free(my_list);
-			return (0);
-		}
-	}
-	free(my_list);
+	// if (!head || !*head)
+	// 	return (0);
+	// my_list = (int *)malloc(sizeof(int) * count);
+	// if (!my_list)
+	// 	return (0);
+	// for (int i = count - 1; current && i >= 0; i--, current = current->next)
+	// 	my_list[i] = current->n;
+	// current = *head;
+	// for (int i = 0; current; i++, current = current->next)
+	// {
+	// 	if (current->n != my_list[i])
+	// 	{
+	// 		free(my_list);
+	// 		return (0);
+	// 	}
+	// }
+	// free(my_list);
 	return (1);
 }
