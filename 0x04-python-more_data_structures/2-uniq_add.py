@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 def is_unique(new_list, nb):
     if not new_list:
         return True
