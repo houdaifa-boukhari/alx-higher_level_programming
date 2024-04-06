@@ -1,5 +1,9 @@
 #!/usr/bin/python3
 
+"""
+This module contains functions to add unique elements in a list.
+"""
+
 def is_unique(new_list, nb):
     """Check if nb is unique in new_list."""
     if not new_list:
