@@ -7,7 +7,7 @@ def is_unique(new_list, nb):
         if new_list[i] == nb:
             return False
     return True
-    
+
 def uniq_add(my_list=[]):
     new_list = []
     sum = 0
