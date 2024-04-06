@@ -1,26 +1,23 @@
 #include "lists.h"
 
 /**
- * reverse_listint - reverses a linked list
- * @head: pointer to the first node in the list
- *
- * Return: pointer to the first node in the new list
+ * ft_lstsize - returns the number of elements in a linked list
+ * @head: pointer to the head of the list
+ * Return: number of elements in the list
  */
-void reverse_listint(listint_t **head)
+
+size_t ft_lstsize(listint_t *head)
 {
-	listint_t *prev = NULL;
-	listint_t *current = *head;
-	listint_t *next = NULL;
+	size_t count = 0;
 
-	while (current)
+	if (!head)
+		return (0);
+	while (head)
 	{
-		next = current->next;
-		current->next = prev;
-		prev = current;
-		current = next;
+		count++;
+		head = head->next;
 	}
-
-	*head = prev;
+	return (count);
 }
 
 /**
@@ -29,44 +26,30 @@ void reverse_listint(listint_t **head)
  *
  * Return: 1 if it is, 0 if not
  */
+
 int is_palindrome(listint_t **head)
 {
-	listint_t *slow = *head, *fast = *head, *temp = *head, *dup = NULL;
+	size_t count = ft_lstsize(*head);
+	int *my_list;
+	listint_t *current = *head;
 
-	if (*head == NULL || (*head)->next == NULL)
-		return (1);
-
-	while (1)
+	if (!head || !*head)
+		return (0);
+	my_list = (int *)malloc(sizeof(int) * count);
+	if (!my_list)
+		return (0);
+	for (size_t i = count - 1; current; i--, current = current->next)
+		my_list[i] = current->n;
+	current = *head;
+	for (int i = 0; current; i++, current = current->next)
 	{
-		fast = fast->next->next;
-		if (!fast)
+		if (current->n != my_list[i])
 		{
-			dup = slow->next;
-			break;
-		}
-		if (!fast->next)
-		{
-			dup = slow->next->next;
-			break;
-		}
-		slow = slow->next;
-	}
-
-	reverse_listint(&dup);
-
-	while (dup && temp)
-	{
-		if (temp->n == dup->n)
-		{
-			dup = dup->next;
-			temp = temp->next;
-		}
-		else
+			free(my_list);
 			return (0);
+		}
 	}
-
-	if (!dup)
-		return (1);
-
-	return (0);
+	free(my_list);
+	return (1);
 }
+
