@@ -13,6 +13,7 @@ def is_unique(new_list, nb):
             return False
     return True
 
+
 def uniq_add(my_list=[]):
     """Add unique elements in my_list."""
     new_list = []
