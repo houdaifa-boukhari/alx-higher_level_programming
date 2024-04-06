@@ -5,6 +5,7 @@ This module contains functions to add unique elements in a list.
 """
 
 def is_unique(new_list, nb):
+    """Check if nb is unique in new_list."""
     if not new_list:
         return True
     for i in range(len(new_list)):
@@ -13,6 +14,7 @@ def is_unique(new_list, nb):
     return True
 
 def uniq_add(my_list=[]):
+    """Add unique elements in my_list."""
     new_list = []
     sum = 0
     for i in range(len(my_list)):
