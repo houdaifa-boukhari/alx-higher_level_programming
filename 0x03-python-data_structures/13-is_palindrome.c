@@ -53,7 +53,6 @@ int is_palindrome(listint_t **head)
 			return (0);
 		}
 	}
-	free(my_list);
 	return (1);
 }
 
