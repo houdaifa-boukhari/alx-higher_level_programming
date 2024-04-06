@@ -1,5 +1,5 @@
 #include "lists.h"
-# include <stdlib.h>
+#include <stdlib.h>
 
 /**
  * ft_lstsize - returns the number of elements in a linked list
@@ -9,7 +9,7 @@
 
 int ft_lstsize(listint_t *head)
 {
-	unsigned int count = 0;
+	int count = 0;
 
 	if (!head)
 		return (0);
