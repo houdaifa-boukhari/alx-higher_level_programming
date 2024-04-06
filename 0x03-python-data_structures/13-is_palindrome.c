@@ -29,9 +29,9 @@ int ft_lstsize(listint_t *head)
 
 int is_palindrome(listint_t **head)
 {
-	int count = ft_lstsize(*head);
-	int *my_list;
-	listint_t *current = *head;
+	// int count = ft_lstsize(*head);
+	// int *my_list;
+	// listint_t *current = *head;
 
 	// if (!head || !*head)
 	// 	return (0);
