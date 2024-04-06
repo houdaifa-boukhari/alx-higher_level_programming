@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-
-def switch_dict(a_dictionary):
-	new_dict = {}
-	for key, value in a_dictionary.items():
-		new_dict.setdefault(value, []).append(key)
-	return new_dict
+a = 89
+b = 10
+a, b = b, a
+print("a={:d} - b={:d}".format(a, b))
