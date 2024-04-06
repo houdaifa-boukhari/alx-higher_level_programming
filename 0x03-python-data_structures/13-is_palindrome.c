@@ -1,28 +1,28 @@
 #include "lists.h"
 #include <stdlib.h>
 
-size_t ft_lstsize(listint_t *head);
+// size_t ft_lstsize(listint_t *head);
 int is_palindrome(listint_t **head);
 
 /**
  * ft_lstsize - returns the number of elements in a linked list
  * @head: pointer to the head of the list
  * Return: number of elements in the list
- */
+//  */
 
-size_t ft_lstsize(listint_t *head)
-{
-	size_t count = 0;
+// size_t ft_lstsize(listint_t *head)
+// {
+// 	size_t count = 0;
 
-	if (!head)
-		return (0);
-	while (head)
-	{
-		count++;
-		head = head->next;
-	}
-	return (count);
-}
+// 	// if (!head)
+// 		return (0);
+// 	while (head)
+// 	{
+// 		count++;
+// 		head = head->next;
+// 	}
+// 	return (count);
+// }
 
 /**
  * is_palindrome - checks if a linked list is a palindrome
