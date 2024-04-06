@@ -1,4 +1,8 @@
 #include "lists.h"
+#include <stdlib.h>
+
+size_t ft_lstsize(listint_t *head);
+int is_palindrome(listint_t **head);
 
 /**
  * ft_lstsize - returns the number of elements in a linked list
