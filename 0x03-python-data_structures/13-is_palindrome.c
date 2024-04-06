@@ -34,10 +34,10 @@ int is_palindrome(listint_t **head)
 
 	if (!head || !*head)
 		return (0);
-	my_list = (int *)malloc(sizeof(int) * count--);
+	my_list = (int *)malloc(sizeof(int) * count);
 	if (!my_list)
 		return (0);
-	for (count ; count >= 0 && current; count--, current = current->next)
+	for (int i = count - 1; current && i >= 0; i--, current = current->next)
 		my_list[count] = current->n;
 	current = *head;
 	for (int i = 0; current; i++, current = current->next)
