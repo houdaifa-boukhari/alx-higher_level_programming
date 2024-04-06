@@ -33,26 +33,25 @@ size_t ft_lstsize(listint_t *head)
 
 int is_palindrome(listint_t **head)
 {
-	size_t count = ft_lstsize(*head);
-	int *my_list;
-	listint_t *current = *head;
+	// size_t count = ft_lstsize(*head);
+	// int *my_list;
+	// listint_t *current = *head;
 
-	if (!*head || !(*head)->next)
-		return (1);
-	my_list = (int *)malloc(sizeof(int) * count);
-	if (!my_list)
+	if (!head || !*head)
 		return (0);
-	for (size_t i = count - 1; current; i--, current = current->next)
-		my_list[i] = current->n;
-	current = *head;
-	for (int i = 0; current; i++, current = current->next)
-	{
-		if (current->n != my_list[i])
-		{
-			free(my_list);
-			return (0);
-		}
-	}
+	// my_list = (int *)malloc(sizeof(int) * count);
+	// if (!my_list)
+		// return (0);
+	// for (size_t i = count - 1; current; i--, current = current->next)
+		// my_list[i] = current->n;
+	// current = *head;
+	// for (int i = 0; current; i++, current = current->next)
+	// {
+		// if (current->n != my_list[i])
+		// {
+			// free(my_list);
+			// return (0);
+		// }
+	// }
 	return (1);
 }
-
