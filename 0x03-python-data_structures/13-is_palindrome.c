@@ -37,8 +37,8 @@ int is_palindrome(listint_t **head)
 	int *my_list;
 	listint_t *current = *head;
 
-	if (!head || !*head)
-		return (0);
+	if (!*head || !(*head)->next)
+		return (1);
 	my_list = (int *)malloc(sizeof(int) * count);
 	if (!my_list)
 		return (0);
