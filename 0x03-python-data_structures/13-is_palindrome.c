@@ -7,19 +7,19 @@
  * Return: number of elements in the list
  */
 
-int ft_lstsize(listint_t *head)
-{
-	int count = 0;
+// int ft_lstsize(listint_t *head)
+// {
+// 	int count = 0;
 
-	if (!head)
-		return (0);
-	while (head)
-	{
-		count++;
-		head = head->next;
-	}
-	return (count);
-}
+// 	if (!head)
+// 		return (0);
+// 	while (head)
+// 	{
+// 		count++;
+// 		head = head->next;
+// 	}
+// 	return (count);
+// }
 
 /**
  * is_palindrome - checks if a singly linked list is a palindrome
