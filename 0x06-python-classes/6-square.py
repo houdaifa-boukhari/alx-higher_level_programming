@@ -39,14 +39,14 @@ class Square:
 
     def my_print(self):
         tmp = self.__position[0] * self.__size
-        if self.__position[1] > 0:
+        if self.__position[1] > 0 and tmp != 0:
             tmp /= self.__position[0]
         if self.__size == 0:
             print()
         else:
             for i in range(self.__size):
-                 if tmp > 0:
-                     for i in range(self.__position[0]):
+                if tmp > 0:
+                    for i in range(self.__position[0]):
                         print(" ", end="")
-                     tmp -= 1
-                 print("#" * self.__size)
+                    tmp -= 1
+                print("#" * self.__size)
