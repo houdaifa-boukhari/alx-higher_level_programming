@@ -1,24 +1,24 @@
 Importing function from the module:
     >>> add_integer = __import__('0-add_integer').add_integer
 
-Adding 1 and 2
-    >>> add_integer(1, 2)
-    3
+Adding 1 and 7
+    >>> add_integer(1, 7)
+    10
 
-Subtracting 100 and 2
-    >>> add_integer(100, -2)
-    98
+Subtracting 100 and 8
+    >>> add_integer(100, -8)
+    92
 
-Adding 2.1 and 98
-    >>> add_integer(2.1)
-    100
+Adding 3.1 and 98
+    >>> add_integer(3.1)
+    101
 
-Subtracting 100.3 and 2
-	    >>> add_integer(100.3, -2)
-	    98
+Subtracting 100.3 and 4
+	    >>> add_integer(100.3, -4)
+	    96
 
 Adding an integer number and a string
-    >>> add_integer(4, "School")
+    >>> add_integer(7, "hellooo")
     Traceback (most recent call last):
 	      ...
     TypeError: b must be an integer
@@ -30,13 +30,13 @@ Passing None
     TypeError: a must be an integer
 
 Adding a letter and a number
-    >>> add_integer('1', 1)
+    >>> add_integer('2', 2)
     Traceback (most recent call last):
               ...
     TypeError: a must be an integer
 
 Adding two letters
-    >>> add_integer('2', '1')
+    >>> add_integer('2', '8')
     Traceback (most recent call last):
               ...
     TypeError: a must be an integer
@@ -63,9 +63,9 @@ Adding two float numbers
     >>> add_integer(2.9, 2.9)
     4
 
-Subtracting 98 and 1
-    >>> add_integer(-1)
-    97
+Subtracting 98 and 2
+    >>> add_integer(-2)
+    96
 
 Case Overflow:
 
