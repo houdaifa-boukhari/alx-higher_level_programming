@@ -2,6 +2,7 @@
 
 """Defines an integer addition function."""
 
+
 def add_integer(a, b=98):
     """Function that adds two integers"""
     if type(a) not in [int, float]:
