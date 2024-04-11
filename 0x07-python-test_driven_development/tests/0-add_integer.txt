@@ -1,4 +1,8 @@
- This function adds two integers or floats.
+
+            ============================
+            How to Use 0-add_integer.py
+            ============================
+ """This function adds two integers or floats"""
 
     >>> add_integer(1, 2)
     3
