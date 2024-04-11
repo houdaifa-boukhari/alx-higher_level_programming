@@ -8,13 +8,8 @@ def safe_print_division(a, b):
     except (ZeroDivisionError, ValueError):
         flage = 1
     finally:
-        if flage = 1:
+        if flage == 1:
             print("Inside result: None")
             return "None"
         print("Inside result: {}".format(sum))
         return sum
-
-a = 10
-b = 0
-result = safe_print_division(a, b)
-print("{:d} / {:d} = {}".format(a, b, result))
