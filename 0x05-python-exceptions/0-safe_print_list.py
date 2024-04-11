@@ -11,8 +11,3 @@ def safe_print_list(my_list=[], x=0):
         return (i)
     print()
     return (i + 1)
-
-my_list = [1, 2, 3, 4, 5]
-
-nb_print = safe_print_list(my_list, 0)
-print("nb_print: {:d}".format(nb_print))
