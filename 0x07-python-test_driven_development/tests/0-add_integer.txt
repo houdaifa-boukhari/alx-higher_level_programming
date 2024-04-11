@@ -10,3 +10,9 @@
     98
     >>> add_integer(100.3, 2.3)
     102
+    >>> add_integer("heloo", "world")
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+    >>> add_integer(100, "world")
+    Traceback (most recent call last):
+    TypeError: b must be an integer
