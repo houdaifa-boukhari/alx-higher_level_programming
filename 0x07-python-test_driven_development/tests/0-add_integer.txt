@@ -21,3 +21,6 @@
     >>> add_integer(None)
     Traceback (most recent call last):
     TypeError: a must be an integer
+    >>> add_integer(float('nan'), 4)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
