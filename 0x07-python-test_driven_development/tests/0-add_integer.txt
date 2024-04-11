@@ -16,3 +16,10 @@
     >>> add_integer(100, "world")
     Traceback (most recent call last):
     TypeError: b must be an integer
+    >>> add_integer("heloo", 2)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+    >>> add_integer(None)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+    """
