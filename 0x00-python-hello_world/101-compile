@@ -1,4 +1,10 @@
 #!/bin/bash
 
-python -m py_compile $PYFILE
-mv ${PYFILE}c ${$PYFILE::-3}c
+filename=$PYFILE
+
+if [[ -n $filename ]]; then
+    python -m py_compile $filename
+    mv ${filename}c ${filename::-3}c
+else
+    exit 1
+fi
