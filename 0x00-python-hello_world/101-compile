@@ -1,0 +1,8 @@
+import os
+import py_compile
+
+filename = os.getenv('PYFILE')
+
+if filename is not None:
+    py_compile.compile(filename)
+    os.rename(filename + 'c', filename[:-3] + 'c')
