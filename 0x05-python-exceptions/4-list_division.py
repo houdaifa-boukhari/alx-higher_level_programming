@@ -19,5 +19,4 @@ def list_division(my_list_1, my_list_2, list_length):
             new_list.append(safe_division(my_list_1[i], my_list_2[i]))
     except IndexError:
         print("out of range")
-        continue
     return new_list
