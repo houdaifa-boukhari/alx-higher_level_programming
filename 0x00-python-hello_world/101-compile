@@ -1,8 +1,4 @@
-import os
-import py_compile
+#!/bin/bash
 
-filename = os.getenv('PYFILE')
-
-if filename is not None:
-    py_compile.compile(filename)
-    os.rename(filename + 'c', filename[:-3] + 'c')
+python -m py_compile $PYFILE
+mv ${PYFILE}c ${$PYFILE::-3}c
