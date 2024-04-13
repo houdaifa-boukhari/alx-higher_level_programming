@@ -60,10 +60,3 @@ class Rectangle:
     def __del__(self):
         Rectangle.number_of_instances -= 1
         print("Bye rectangle...")
-
-my_rectangle_1 = Rectangle(8, 4)
-print(my_rectangle_1)
-my_rectangle_1.print_symbol = "H"
-print(my_rectangle_1)
-
-my_rectangle_2 = Rectangle(2, 1)
