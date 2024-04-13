@@ -3,9 +3,6 @@
 """Module that defines a class Rectangle"""
 
 
-from typing import Any
-
-
 class Rectangle:
     """Class that defines a rectangle"""
 
