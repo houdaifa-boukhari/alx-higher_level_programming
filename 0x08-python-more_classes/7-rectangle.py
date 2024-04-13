@@ -7,7 +7,6 @@ class Rectangle:
     """Class that defines a rectangle"""
 
     number_of_instances = 0
-
     print_symbol = "#"
 
     def __init__(self, width=0, height=0):
@@ -51,7 +50,8 @@ class Rectangle:
         new_str = ""
         if self.__height == 0 or self.__width == 0:
             return ""
-        new_str = "\n".join([Rectangle.print_symbol * self.__width for i in range(self.height)])
+        new_str = "\n".join(
+            [self.print_symbol * self.width for i in range(self.height)])
         return new_str
 
     def __repr__(self):
